@@ -39,7 +39,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'apiexamles.urls'
+ROOT_URLCONF = 'apiexamples.urls'
 
 TEMPLATES = [
     {
@@ -57,7 +57,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'apiexamles.wsgi.application'
+WSGI_APPLICATION = 'apiexamples.wsgi.application'
 
 
 # Database
@@ -106,3 +106,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+API_KEY = os.getenv('API_KEY_EX')
+OXFORD_APP_ID = os.getenv('OXFORD_APP_ID', default='')
+OXFORD_APP_KEY = os.getenv('OXFORD_APP_KEY', default='')
