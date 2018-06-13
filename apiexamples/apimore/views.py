@@ -3,11 +3,11 @@ from django.conf import settings
 from django.shortcuts import render
 
 
-def home(request):
+def geo(request):
     ip_address = request.META.get('HTTP_X_FORWARDED_FOR', '')
     response = requests.get('http://freegeoip.net/json/%s' % ip_address)
     geodata = response.json()
-    return render(request, 'apimore/home.html', {
+    return render(request, 'apimore/geo.html', {
         'ip': geodata['ip'],
         'country': geodata['country_name'],
         'voivodeship': geodata['region_name'],
