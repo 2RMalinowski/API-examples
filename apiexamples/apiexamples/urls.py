@@ -5,5 +5,5 @@ from apimore import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.geo, name='geo'),
-    # path('oxford/', views.oxford, name='oxford'),
+    path('oxford/', views.oxford, name='oxford'),
 ]

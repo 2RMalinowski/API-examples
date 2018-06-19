@@ -1,10 +1,33 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'apimore/base.html' %}
 
-</body>
-</html>
+{% block content %}
+<h3>Oxford Dict API</h3>
+<form method="get">
+    {{ form.as_p }}
+    <button type="submit">search</button>
+</form>
+
+{% if search_result %}
+<hr>
+{% if search_result.success %}
+{% for result in search_result.results %}
+<h4>{{ result.word }}</h4>
+{% for lexicalentry in result.lexicalEntries %}
+<h4>{{ lexicalentry.lexicalCategory }}</h4>
+<ul>
+    {% for entry in lexicalentry.entries %}
+    {% for sense in entry.senses %}
+    {% for definition in sense.definitions %}
+    <li>{{ definition }}</li>
+    {% endfor %}
+    {% endfor %}
+    {% endfor %}
+</ul>
+{% endfor %}
+{% endfor %}
+{% else %}
+<p><em>{{ search_result.message }}</em></p>
+{% endif %}
+{% endif %}
+
+{% endblock %}

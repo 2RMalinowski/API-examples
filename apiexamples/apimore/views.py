@@ -28,10 +28,10 @@ def geo(request):
 
 def oxford(request):
     search_result = {}
-    if 'word' in requests.GET:
+    if 'word' in request.GET:
         form = DictionaryForm(request.GET)
         if form.is_valid():
             search_result = form.search()
     else:
         form = DictionaryForm()
-    return render(request, 'core/oxford.html', {'form': form, 'search_result': search_result})
+    return render(request, 'apimore/oxford.html', {'form': form, 'search_result': search_result})
