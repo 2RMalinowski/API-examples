@@ -2,10 +2,15 @@
 
 {% block content %}
 <h3>Oxford Dict API</h3>
-<form method="get">
+<form method="GET">
     {{ form.as_p }}
-    <button type="submit">search</button>
+    <input type="submit" name="action" value="search">
 </form>
+
+<!--<form method="GET">-->
+    <!--{{ form.as_p }}-->
+    <!--<button type="submit">search</button>-->
+<!--</form>-->
 
 {% if search_result %}
 <hr>
